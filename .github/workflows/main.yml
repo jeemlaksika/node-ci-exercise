@@ -23,9 +23,28 @@ jobs:
         run : npm install
       - name : Run ESLint
         run : npm run lint
-  build:
+
+  codeql:
     runs-on: ubuntu-latest
     needs: [lint]
+    permissions:
+      security-events: write
+      actions : read
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Intialize cpdeql
+      uses: github/codeql-action/init@v3
+      With:
+        languages: javascript-typescript
+
+    - name: Perform CpdeQl Analysis
+      uses: github/codeql-action/init@v3
+
+  build:
+    runs-on: ubuntu-latest
+    needs: [codeql]
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
