@@ -35,7 +35,7 @@ jobs:
       uses: actions/checkout@v4
     - name: Intialize cpdeql
       uses: github/codeql-action/init@v3
-      With:
+      with:
         languages: javascript-typescript
 
     - name: Perform CpdeQl Analysis
