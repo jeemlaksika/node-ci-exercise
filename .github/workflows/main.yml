@@ -34,7 +34,7 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-    - name: Intialize cpdeql
+    - name: Intialize codeql
       uses: github/codeql-action/init@v3
       with:
         languages: javascript-typescript
