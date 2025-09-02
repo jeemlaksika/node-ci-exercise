@@ -27,6 +27,7 @@ jobs:
   codeql:
     runs-on: ubuntu-latest
     needs: [lint]
+
     permissions:
       security-events: write
       actions : read
@@ -39,7 +40,7 @@ jobs:
         languages: javascript-typescript
 
     - name: Perform CpdeQl Analysis
-      uses: github/codeql-action/init@v3
+      uses: github/codeql-action/analyze@v3
 
   build:
     runs-on: ubuntu-latest
